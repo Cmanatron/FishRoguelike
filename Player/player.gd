@@ -1,28 +1,29 @@
 extends Node2D
-var speed = 10
-var stopping = 1
+var speed = 30
+var stopping = 5
 @export var health = 10
-@export var air = 100
+@export var airMax = 100
+var air = airMax
+@export var HP = 100
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_pressed("up"):
-		$CharacterBody2D.velocity.y -= 1
-	elif Input.is_action_pressed("down"):
-		$CharacterBody2D.velocity.y += 1
-	elif Input.is_action_pressed("right"):
-		$CharacterBody2D.velocity.x += 1
-	elif Input.is_action_pressed("left"):
-		$CharacterBody2D.velocity.x -= 1
+	if Input.is_action_pressed("right"):
+		$".".rotation_degrees+= speed*delta
+	if Input.is_action_pressed("left"):
+		$".".rotation_degrees-=speed*delta
+	
+	if(Input.is_action_pressed("up")):
+		var dir: Vector2 = Vector2.from_angle(self.rotation)
+		$".".velocity = dir * speed*3
 	else:
-		if($CharacterBody2D.velocity.x != 0):
-			if($CharacterBody2D.velocity.x >0):
-				$CharacterBody2D.velocity.x -= stopping
+		if ($".".velocity.x !=0):
+			if($".".velocity.x >0):
+				$".".velocity.x -= stopping
 			else:
-				$CharacterBody2D.velocity.x += stopping
-		if($CharacterBody2D.velocity.y != 0):
-			if($CharacterBody2D.velocity.y >0):
-				$CharacterBody2D.velocity.y -= stopping
+				$".".velocity.x += stopping
+		if ($".".velocity.y !=0):
+			if($".".velocity.y >0):
+				$".".velocity.y -= stopping
 			else:
-				$CharacterBody2D.velocity.y += stopping
-		
-		$CharacterBody2D.move_and_slide()
+				$".".velocity.y += stopping
+	$".".move_and_slide()

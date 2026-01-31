@@ -7,14 +7,11 @@
 radius = 16.0
 height = 52.0
 
-[node name="Player" type="Node2D" unique_id=1694651057]
+[node name="Player" type="CharacterBody2D" unique_id=1643441324]
 script = ExtResource("1_l8h54")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=707304370]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=767174944]
-position = Vector2(139, 51)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=767174944]
 shape = SubResource("CapsuleShape2D_4ntmi")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D/CollisionShape2D" unique_id=75875578]
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=75875578]
 texture = ExtResource("2_4ntmi")
