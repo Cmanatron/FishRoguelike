@@ -45,8 +45,8 @@ func move(delta):
 		
 	if health <= 0: 
 		var dropped = pickup.instantiate()
-		dropped.position.x = $CollisionShape2D.position.x
-		dropped.position.y = $CollisionShape2D.position.y
+		dropped.position.x = $CollisionShape2D.global_position.x
+		dropped.position.y = $CollisionShape2D.global_position.y
 		get_tree().root.add_child(dropped)
 		queue_free()
 	

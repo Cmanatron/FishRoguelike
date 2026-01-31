@@ -5,8 +5,10 @@ var stopping = 5
 @export var airMax = 100
 var inAir:bool = false
 var air = airMax
-@export var HP = 100
-@export var damage = 50
+@export var MaxHP:int = 100
+var HP = MaxHP
+@export var damage:int = 50
+@export var bulletSize:float = 1
 var bullet = preload("res://Player/Bullet.tscn")
 
 func refill():

@@ -10,6 +10,8 @@ radius = 45.54119
 script = ExtResource("1_vueyr")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2128017466]
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=960630816]
 shape = SubResource("CircleShape2D_bujg3")
@@ -18,3 +20,4 @@ shape = SubResource("CircleShape2D_bujg3")
 texture = ExtResource("2_bujg3")
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
