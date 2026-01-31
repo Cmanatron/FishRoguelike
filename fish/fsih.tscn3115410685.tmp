@@ -1,13 +1,26 @@
 [gd_scene format=3 uid="uid://djve37ttkv44t"]
 
-[ext_resource type="Script" uid="uid://bygb6ismqjskj" path="res://mainFish.gd" id="1_1u7o6"]
 [ext_resource type="Script" uid="uid://dc77ye0qcs8gf" path="res://fish/fish_move.gd" id="1_f15ie"]
+
+[sub_resource type="GDScript" id="GDScript_f15ie"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f15ie"]
 size = Vector2(264.4181, 68.5)
 
 [node name="fish" type="Node2D" unique_id=1538071325]
-script = ExtResource("1_1u7o6")
+script = SubResource("GDScript_f15ie")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=950278757]
 script = ExtResource("1_f15ie")
@@ -32,7 +45,4 @@ autostart = true
 position = Vector2(0, -10)
 polygon = PackedVector2Array(-1, 647, 1166, 651, 1166, -4, -4, -11, 6, 587, -231, 647, -178, -135, 377, -285, 1022, -265, 1339, -118, 1349, 317, 1396, 738, 1079, 868, 367, 848, -151, 848, -235, 647, 6, 601)
 
-[node name="spawnTime" type="Timer" parent="." unique_id=1542247256]
-
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
-[connection signal="timeout" from="spawnTime" to="." method="_on_spawn_time_timeout"]
