@@ -3,9 +3,14 @@ var speed = 30
 var stopping = 5
 @export var health = 10
 @export var airMax = 100
+var inAir:bool = false
 var air = airMax
-@export var HP = 100
+@export var HP = 1000
 var bullet = preload("res://Player/Bullet.tscn")
+
+func refill():
+	if(air<airMax):
+		air+=10
 
 func shoot():
 	var shot = bullet.instantiate()
@@ -14,6 +19,7 @@ func shoot():
 
 func _physics_process(delta: float) -> void:
 	#Movement Controller
+	air -= 1
 	if Input.is_action_pressed("right"):
 		$".".rotation_degrees+= speed*delta
 	if Input.is_action_pressed("left"):
@@ -34,6 +40,10 @@ func _physics_process(delta: float) -> void:
 			else:
 				$".".velocity.y += stopping
 	$".".move_and_slide()
+	if(inAir):
+		refill()
+	
+	print(air)
 	
 	#Shooting Controller
 	if(Input.is_action_just_pressed("shoot")):
