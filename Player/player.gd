@@ -1,14 +1,17 @@
 extends Node2D
-var speed = 30
+@export var speed = 30
 var stopping = 5
-@export var health = 10
-@export var airMax = 100
+@export var health:int = 10
+@export var airMax:int = 100
+@export var bulletSpeed:int = 100
 var inAir:bool = false
 var air = airMax
 @export var MaxHP:int = 100
 var HP = MaxHP
 @export var damage:int = 50
 @export var bulletSize:float = 1
+@export var attackSpeed:float = 3
+var isReady:bool = true
 var bullet = preload("res://Player/Bullet.tscn")
 
 func refill():
@@ -19,6 +22,9 @@ func shoot():
 	var shot = bullet.instantiate()
 	$".".get_parent().add_child(shot)
 	shot.damage = damage
+	shot.speed = bulletSpeed
+	shot.scale.x =bulletSize
+	shot.scale.y = bulletSize
 	shot.transform = $Emitter.global_transform
 
 func _physics_process(delta: float) -> void:
@@ -50,6 +56,13 @@ func _physics_process(delta: float) -> void:
 	#print(air)
 	
 	#Shooting Controller
-	if(Input.is_action_just_pressed("shoot")):
+	if(Input.is_action_just_pressed("shoot") and isReady):
+		isReady = false
 		shoot()
+		$Cooldown.start(attackSpeed)
 		
+		
+
+
+func _on_cooldown_timeout() -> void:
+	isReady = true

@@ -20,3 +20,7 @@ texture = ExtResource("2_4ntmi")
 
 [node name="Emitter" type="Node2D" parent="." unique_id=451329806]
 position = Vector2(64, 1)
+
+[node name="Cooldown" type="Timer" parent="." unique_id=748646171]
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
