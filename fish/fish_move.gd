@@ -44,9 +44,9 @@ func _physics_process(delta):
 		#chase = true		
 		
 	if chase: 
-		dir = position.direction_to(player.position)
+		dir = global_position.direction_to(player.position)
 		velocity = dir * speed #* delta
-		look_at(player.position)
+		look_at(player.global_position)
 		#dir.x = abs(velocity.x) / velocity.x	
 	
 	elif !chase:
