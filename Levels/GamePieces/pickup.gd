@@ -10,4 +10,4 @@ func _on_tree_entered() -> void:
 			$Area2D/Sprite2D.texture = load("res://fish/fish2.png")
 		2:
 			$Area2D/Sprite2D.texture = load("res://fish/fish3.png")
-			
+		

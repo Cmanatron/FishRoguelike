@@ -5,7 +5,7 @@ var dir: Vector2
 var dirOption = [Vector2.RIGHT, Vector2.LEFT, Vector2.DOWN, Vector2.UP]
 var typeFront = "SMALL"
 var health = 100
-
+var pickup = preload("res://Levels/GamePieces/Pickup.tscn")
 var chase: bool
 
 var type = [
@@ -43,8 +43,13 @@ func move(delta):
 		velocity += dir * speed * delta
 		move_and_slide()
 		
-	if health == 0: 
+	if health <= 0: 
+		var dropped = pickup.instantiate()
+		dropped.position.x = $CollisionShape2D.position.x
+		dropped.position.y = $CollisionShape2D.position.y
+		get_tree().root.add_child(dropped)
 		queue_free()
+	
 	
 
 func _on_timer_timeout():

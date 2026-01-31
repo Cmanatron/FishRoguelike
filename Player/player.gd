@@ -5,7 +5,8 @@ var stopping = 5
 @export var airMax = 100
 var inAir:bool = false
 var air = airMax
-@export var HP = 1000
+@export var HP = 100
+@export var damage = 50
 var bullet = preload("res://Player/Bullet.tscn")
 
 func refill():
@@ -15,6 +16,7 @@ func refill():
 func shoot():
 	var shot = bullet.instantiate()
 	$".".get_parent().add_child(shot)
+	shot.damage = damage
 	shot.transform = $Emitter.global_transform
 
 func _physics_process(delta: float) -> void:
@@ -43,7 +45,7 @@ func _physics_process(delta: float) -> void:
 	if(inAir):
 		refill()
 	
-	print(air)
+	#print(air)
 	
 	#Shooting Controller
 	if(Input.is_action_just_pressed("shoot")):

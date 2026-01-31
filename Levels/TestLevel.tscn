@@ -4,9 +4,24 @@
 [ext_resource type="PackedScene" uid="uid://bu5v80bhk737r" path="res://Player/player.tscn" id="1_uib4f"]
 [ext_resource type="PackedScene" uid="uid://jpocajhfhkvt" path="res://Levels/GamePieces/Air.tscn" id="3_y1yrn"]
 
+[sub_resource type="GDScript" id="GDScript_f15ie"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
 [node name="TestLevel" type="Node2D" unique_id=254115542]
 
 [node name="fish" parent="." unique_id=1538071325 instance=ExtResource("1_iqcmb")]
+script = SubResource("GDScript_f15ie")
 
 [node name="Player" parent="." unique_id=1643441324 instance=ExtResource("1_uib4f")]
 

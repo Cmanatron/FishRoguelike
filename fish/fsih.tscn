@@ -6,10 +6,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f15ie"]
 size = Vector2(264.4181, 68.5)
 
-[node name="fish" type="Node2D" unique_id=1538071325]
+[node name="fish" type="Node2D" unique_id=1538071325 groups=["Enemy"]]
 script = ExtResource("1_1u7o6")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=950278757]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=950278757 groups=["Enemy"]]
 script = ExtResource("1_f15ie")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=649955007]
