@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="FishRoguelike"
-run/main_scene="uid://djve37ttkv44t"
+run/main_scene="uid://bno56nggbtl7v"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*uid://begmjm87x8efo"
 
 [global_group]
 

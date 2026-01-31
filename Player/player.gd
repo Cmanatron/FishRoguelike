@@ -40,6 +40,7 @@ func _physics_process(delta: float) -> void:
 			else:
 				$".".velocity.y += stopping
 	$".".move_and_slide()
+	
 	if(inAir):
 		refill()
 	
