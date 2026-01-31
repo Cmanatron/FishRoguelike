@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://djve37ttkv44t"]
+
+[ext_resource type="Script" uid="uid://dc77ye0qcs8gf" path="res://fish_move.gd" id="1_f15ie"]
+[ext_resource type="Texture2D" uid="uid://gs4dg8r70mfw" path="res://fish/fish1.png" id="1_vnwir"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f15ie"]
+size = Vector2(264.4181, 68.5)
+
+[node name="fish" type="Node2D" unique_id=1538071325]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=376376773]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_f15ie")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=649955007]
+position = Vector2(362.00003, 56)
+rotation = 3.1415927
+scale = Vector2(-2.60945, -2.61742)
+texture = ExtResource("1_vnwir")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1369621228]
+position = Vector2(362.26978, 55.75)
+scale = Vector2(0.24000049, 1)
+shape = SubResource("RectangleShape2D_f15ie")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="RigidBody2D" unique_id=808669700]

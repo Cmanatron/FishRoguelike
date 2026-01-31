@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://djve37ttkv44t"]
+
+[ext_resource type="Texture2D" uid="uid://gs4dg8r70mfw" path="res://fish/fish1.png" id="1_vnwir"]
+[ext_resource type="Script" uid="uid://b6v0ym57bs4dk" path="res://test.gd" id="2_f15ie"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f15ie"]
+size = Vector2(3616, 3623)
+
+[sub_resource type="Curve2D" id="Curve2D_vnwir"]
+
+[node name="fish" type="Node2D" unique_id=1538071325]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=376376773]
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=649955007]
+position = Vector2(-312.49994, -1812.5)
+scale = Vector2(152.04167, 152.04167)
+texture = ExtResource("1_vnwir")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1369621228]
+position = Vector2(-356, -1821.5)
+shape = SubResource("RectangleShape2D_f15ie")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="RigidBody2D" unique_id=808669700]
+
+[node name="Path2D" type="Path2D" parent="RigidBody2D" unique_id=779743515]
+curve = SubResource("Curve2D_vnwir")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="RigidBody2D/Path2D" unique_id=962685931]
+script = ExtResource("2_f15ie")
