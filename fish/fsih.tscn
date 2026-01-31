@@ -1,3 +1,50 @@
 [gd_scene format=3 uid="uid://djve37ttkv44t"]
 
+[ext_resource type="Script" uid="uid://dc77ye0qcs8gf" path="res://fish/fish_move.gd" id="1_f15ie"]
+[ext_resource type="Texture2D" uid="uid://gs4dg8r70mfw" path="res://fish/fish1.png" id="1_vnwir"]
+
+[sub_resource type="GDScript" id="GDScript_f15ie"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f15ie"]
+size = Vector2(264.4181, 68.5)
+
 [node name="fish" type="Node2D" unique_id=1538071325]
+script = SubResource("GDScript_f15ie")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=950278757]
+script = ExtResource("1_f15ie")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=649955007]
+position = Vector2(362.00003, 56)
+scale = Vector2(2.60945, 2.61742)
+texture = ExtResource("1_vnwir")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1369621228]
+position = Vector2(362.26978, 55.75)
+scale = Vector2(0.24000049, 1)
+shape = SubResource("RectangleShape2D_f15ie")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="CharacterBody2D" unique_id=808669700]
+
+[node name="Timer" type="Timer" parent="CharacterBody2D" unique_id=372586715]
+autostart = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=871913563]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=202617142]
+position = Vector2(0, -10)
+polygon = PackedVector2Array(-1, 647, 1166, 651, 1166, -4, -4, -11, 6, 587, -231, 647, -178, -135, 377, -285, 1022, -265, 1339, -118, 1349, 317, 1396, 738, 1079, 868, 367, 848, -151, 848, -235, 647, 6, 601)
+
+[connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
