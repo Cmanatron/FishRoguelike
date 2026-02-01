@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bdnjpklmtb8tu"]
+
+[ext_resource type="Script" uid="uid://c4ctdrourdbm2" path="res://start.gd" id="1_cmhrf"]
+
+[node name="Node2D" type="Node2D" unique_id=429648794]
+script = ExtResource("1_cmhrf")
+
+[node name="Button" type="Button" parent="." unique_id=941351028]
+offset_left = 490.0
+offset_top = 307.0
+offset_right = 587.0
+offset_bottom = 348.0
+text = "Dive!"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
