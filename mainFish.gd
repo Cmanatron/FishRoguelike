@@ -9,6 +9,7 @@ extends Node2D
 func _ready():
 	enem = enemScene.instantiate()
 	get_tree().current_scene.add_child(enem)
+	$AudioStreamPlayer.play()
 	
 
 func _process(delta):
