@@ -14,7 +14,7 @@ var type = [
 ]
 
 func _ready():
-	chase = true
+	#chase = true
 	area = $Area2D
 	type.shuffle() #This is for testing! In the actual game I imagine it would start with
 	#specific types and then become randomized???
@@ -22,17 +22,21 @@ func _ready():
 	print(typeFront)
 	match typeFront:
 		"SMALL":
-			speed = 100
+			speed = 75
 			$Sprite2D.texture=ResourceLoader.load("res://fish/fish1.png")
 			health = 20
+			chase = false
 		"MED": 
 			speed = 50
 			$Sprite2D.texture=ResourceLoader.load("res://fish/fish2.png")
 			health = 50
+			chase = false 
+			
 		"LARGE":
 			speed = 20
 			$Sprite2D.texture=ResourceLoader.load("res://fish/fish3.png")
 			health = 100
+			chase = true
 	
 func _physics_process(delta):
 	#move(delta)
@@ -54,7 +58,7 @@ func _physics_process(delta):
 		
 	#print(get_viewport().get_mouse_position())	
 		
-	print(player.position) 
+	#print(player.position) 
 	
 	#print(chase)
 		
@@ -85,7 +89,11 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
 
 
-#func _on_area_2d_area_entered(area: Area2D) -> void:
-	#if area.overlaps_body(player):
-		#chase = true
-	#pass # Replace with function body.
+
+func _on_area_2d_body_entered(body: Node2D):
+	if body == player:
+		chase = true
+	
+	print(body)
+	print(chase)
+	pass # Replace with function body.
