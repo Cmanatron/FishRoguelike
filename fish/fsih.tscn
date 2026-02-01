@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://djve37ttkv44t"]
 
-
-[ext_resource type="Script" uid="uid://d2xnnspscyy3m" path="res://mainFish.gd" id="1_1u7o6"]
+[ext_resource type="Script" uid="uid://cw5kcqkpi8ro6" path="res://mainFish.gd" id="1_1u7o6"]
 [ext_resource type="Script" uid="uid://dc77ye0qcs8gf" path="res://fish/fish_move.gd" id="1_f15ie"]
 [ext_resource type="Texture2D" uid="uid://gs4dg8r70mfw" path="res://fish/fish1.png" id="1_vnwir"]
 
@@ -36,12 +35,6 @@ scale = Vector2(20.292274, 20.204878)
 position = Vector2(-18.332098, -2.7716079)
 scale = Vector2(1.7311461, 1.6059701)
 polygon = PackedVector2Array(0.93631744, 4.058426, 4.4844646, 3.2665381, 5.2729416, 0.49493003, 5.667181, -1.4352969, 4.090227, -3.9594398, 1.330555, -4.9987926, -0.78847694, -5.097779, -3.4495888, -3.612989, -4.4351864, -1.7322549, -4.4351864, 0.34645104, -4.336626, 2.029213, -2.5625525, 3.316031, -1.5276756, 4.206905, -0.542078, 4.305891)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=871913563]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=202617142]
-position = Vector2(0, -10)
-polygon = PackedVector2Array(-1, 647, 1166, 651, 1166, -4, -4, -11, 6, 587, -231, 647, -178, -135, 377, -285, 1022, -265, 1339, -118, 1349, 317, 1396, 738, 1079, 868, 367, 848, -151, 848, -235, 647, 6, 601)
 
 [node name="spawnTime" type="Timer" parent="." unique_id=1542247256]
 

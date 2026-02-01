@@ -38,6 +38,8 @@ func _ready():
 			$Sprite2D.texture=ResourceLoader.load("res://fish/fish3.png")
 			health = 100
 			chase = true
+			
+			
 	
 func _physics_process(delta):
 	#move(delta)
@@ -62,6 +64,7 @@ func _physics_process(delta):
 	#print(player.position) 
 	
 	#print(chase)
+	
 		
 	if health <= 0: 
 		var dropped = pickup.instantiate()
