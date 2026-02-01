@@ -13,7 +13,7 @@ func _ready():
 	
 
 func _process(delta):
-	$enemSpawn.wait_time -= 0.0000001 * Global.multiplier 
+	$enemSpawn.wait_time -= 0.00001 * Global.multiplier 
 	print ($enemSpawn.wait_time)
 
 func _on_enem_spawn_timeout():
