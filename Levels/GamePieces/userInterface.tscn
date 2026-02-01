@@ -10,4 +10,5 @@ anchors_preset = 0
 layout_mode = 0
 offset_right = 136.0
 offset_bottom = 136.0
+scale = Vector2(1.0245273, 1)
 icon = ExtResource("1_od3t6")

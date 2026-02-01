@@ -28,5 +28,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			4:
 				body.bulletSize += 0.5
 			5:
-				body.attackSpeed -= 0.1
+				body.attackSpeed -= 0.5
+			6:
+				
 		queue_free()
