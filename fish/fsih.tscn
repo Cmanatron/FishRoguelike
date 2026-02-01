@@ -1,10 +1,5 @@
 [gd_scene format=3 uid="uid://djve37ttkv44t"]
 
-<<<<<<< HEAD
-[ext_resource type="Script" uid="uid://cw5kcqkpi8ro6" path="res://mainFish.gd" id="1_1u7o6"]
-=======
-[ext_resource type="Script" uid="uid://d2xnnspscyy3m" path="res://mainFish.gd" id="1_1u7o6"]
->>>>>>> 2484300b518b6b48365ac51e8231b74834cfa380
 [ext_resource type="Script" uid="uid://dc77ye0qcs8gf" path="res://fish/fish_move.gd" id="1_f15ie"]
 [ext_resource type="Texture2D" uid="uid://gs4dg8r70mfw" path="res://fish/fish1.png" id="1_vnwir"]
 
@@ -12,7 +7,6 @@
 size = Vector2(264.4181, 68.5)
 
 [node name="fish" type="Node2D" unique_id=1538071325 groups=["Enemy"]]
-script = ExtResource("1_1u7o6")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=950278757 groups=["Enemy"]]
 script = ExtResource("1_f15ie")
