@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://fbrnmk7qv6hg"]
+
+[ext_resource type="Texture2D" uid="uid://q7j4olut3bhn" path="res://icon.svg" id="1_od3t6"]
+
+[node name="UserInterface" type="Control" unique_id=2093154272]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Button" type="Button" parent="." unique_id=571512284]
+layout_mode = 0
+offset_right = 136.0
+offset_bottom = 136.0
+icon = ExtResource("1_od3t6")

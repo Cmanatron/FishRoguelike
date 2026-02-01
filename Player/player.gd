@@ -18,9 +18,11 @@ var dropReady:bool = true
 var shockReady:bool = true
 
 var isReady:bool = true
+#Weapons
 var bullet = preload("res://Player/Bullet.tscn")
 var barrier = preload("res://Player/shock.tscn")
-#var grenade = preload("")
+var grenade = preload("res://Player/grenade.tscn")
+
 
 func refill():
 	if(air<airMax):
@@ -41,9 +43,14 @@ func shock():
 	$".".add_child(barrierUp)
 	barrierUp.scale.x= bulletSize
 	barrierUp.scale.y=bulletSize
+	barrierUp.speed = attackSpeed
+	barrierUp.damage = damage
 	
-	
-
+func drop():
+	var dropped = grenade.instantiate()
+	$".".add_child(dropped)
+	dropped.size = bulletSize
+	dropped.damage = damage
 func _physics_process(delta: float) -> void:
 	#Movement Controller
 	air -= 1
@@ -79,7 +86,10 @@ func _physics_process(delta: float) -> void:
 		shoot()
 		$Cooldown.start(attackSpeed)
 	elif(Input.is_action_just_pressed("shootB") and dropReady):
-		dropReady = false
+		drop()
+		
+	elif(Input.is_action_just_pressed("shootC")):
+		shock()
 		
 		
 		
@@ -87,3 +97,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_cooldown_timeout() -> void:
 	isReady = true
+
+
+func _on_drop_timer_timeout() -> void:
+	dropReady = true
