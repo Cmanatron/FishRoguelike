@@ -5,14 +5,21 @@ func _on_tree_entered() -> void:
 	type = randi_range(0,7)
 	match type:
 		0:
-			$Area2D/Sprite2D.texture = load("res://fish/fish1.png")
+			$Area2D/Sprite2D.texture = load("res://Sprites/Pickups/DamageUp.png")
 		1:
-			$Area2D/Sprite2D.texture = load("res://fish/fish2.png")
+			$Area2D/Sprite2D.texture = load("res://Sprites/Pickups/SpeedUp.png")
 		2:
-			$Area2D/Sprite2D.texture = load("res://fish/fish3.png")
-		_:
-			$Area2D/Sprite2D.texture = load("res://fish/fish3.png")
-	
+			$Area2D/Sprite2D.texture = load("res://Sprites/Pickups/O2Up.png")
+		3:
+			$Area2D/Sprite2D.texture = load("res://Sprites/Pickups/HealthUp.png")
+		4:
+			$Area2D/Sprite2D.texture = load("res://Sprites/Pickups/BulletSizeUp.png")
+		5:
+			$Area2D/Sprite2D.texture = load("res://Sprites/Pickups/BulletSpeedUp.png")
+		6:
+			$Area2D/Sprite2D.texture = load("res://Sprites/Pickups/Bomb.png")
+		7:
+			$Area2D/Sprite2D.texture = load("res://Sprites/Pickups/Battery.png")
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

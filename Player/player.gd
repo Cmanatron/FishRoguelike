@@ -86,10 +86,10 @@ func _physics_process(delta: float) -> void:
 		isReady = false
 		shoot()
 		$Cooldown.start(attackSpeed)
-	elif(Input.is_action_just_pressed("shootB") and dropReady):
+	elif(Input.is_action_just_pressed("shootB") and grenades > 0):
 		drop()
 		
-	elif(Input.is_action_just_pressed("shootC")):
+	elif(Input.is_action_just_pressed("shootC") and batteries > 0):
 		shock()
 		
 		
