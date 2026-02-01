@@ -42,6 +42,7 @@ position = Vector2(322, 11)
 scale = Vector2(-243.88643, 8.299123)
 
 [node name="enemSpawn" type="Timer" parent="." unique_id=1460481805]
+wait_time = 10.0
 autostart = true
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1451539812]

@@ -35,6 +35,7 @@ scale = Vector2(1.7311461, 1.6059701)
 polygon = PackedVector2Array(0.93631744, 4.058426, 4.4844646, 3.2665381, 5.2729416, 0.49493003, 5.667181, -1.4352969, 4.090227, -3.9594398, 1.330555, -4.9987926, -0.78847694, -5.097779, -3.4495888, -3.612989, -4.4351864, -1.7322549, -4.4351864, 0.34645104, -4.336626, 2.029213, -2.5625525, 3.316031, -1.5276756, 4.206905, -0.542078, 4.305891)
 
 [node name="spawnTime" type="Timer" parent="." unique_id=1542247256]
+wait_time = 8.354
 
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
 [connection signal="area_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_area_entered"]

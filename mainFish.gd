@@ -4,17 +4,20 @@ extends Node2D
 
 @onready var spawnPath = $Path2D/PathFollow2D
 
+@onready var enem = enemScene.instantiate()
 
-#func _ready():
-	#$enemSpawn.wait_time = randf_range(2.0, 3.0)
-	#$enemSpawn.start()
+func _ready():
+	enem = enemScene.instantiate()
+	get_tree().current_scene.add_child(enem)
 	
 
-
+func _process(delta):
+	$enemSpawn.wait_time -= 0.0000001 * Global.multiplier 
+	print ($enemSpawn.wait_time)
 
 func _on_enem_spawn_timeout():
 	#Creates enemy
-	var enem = enemScene.instantiate()
+	enem = enemScene.instantiate()
 	spawnPath.progress_ratio = randf()
 	enem.global_position = spawnPath.global_position
 	
