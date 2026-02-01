@@ -11,8 +11,16 @@ var HP = MaxHP
 @export var damage:int = 50
 @export var bulletSize:float = 1
 @export var attackSpeed:float = 3
+
+@export var grenades:int = 0
+var dropReady:bool = true
+@export var batteries:int =0
+var shockReady:bool = true
+
 var isReady:bool = true
 var bullet = preload("res://Player/Bullet.tscn")
+var barrier = preload("res://Player/shock.tscn")
+#var grenade = preload("")
 
 func refill():
 	if(air<airMax):
@@ -26,6 +34,15 @@ func shoot():
 	shot.scale.x =bulletSize
 	shot.scale.y = bulletSize
 	shot.transform = $Emitter.global_transform
+
+
+func shock():
+	var barrierUp = barrier.instantiate()
+	$".".add_child(barrierUp)
+	barrierUp.scale.x= bulletSize
+	barrierUp.scale.y=bulletSize
+	
+	
 
 func _physics_process(delta: float) -> void:
 	#Movement Controller
@@ -56,10 +73,13 @@ func _physics_process(delta: float) -> void:
 	#print(air)
 	
 	#Shooting Controller
-	if(Input.is_action_just_pressed("shoot") and isReady):
+	if((Input.is_action_just_pressed("shootA")) and isReady):
 		isReady = false
 		shoot()
 		$Cooldown.start(attackSpeed)
+	elif(Input.is_action_just_pressed("shootB") and dropReady):
+		dropReady = false
+		
 		
 		
 
