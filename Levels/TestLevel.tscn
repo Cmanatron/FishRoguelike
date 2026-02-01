@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bno56nggbtl7v"]
 
 [ext_resource type="PackedScene" uid="uid://djve37ttkv44t" path="res://fish/fsih.tscn" id="1_iqcmb"]
-[ext_resource type="Script" uid="uid://cw5kcqkpi8ro6" path="res://mainFish.gd" id="1_jyvk6"]
+[ext_resource type="Script" path="res://mainFish.gd" id="1_jyvk6"]
 [ext_resource type="PackedScene" uid="uid://bu5v80bhk737r" path="res://Player/player.tscn" id="1_uib4f"]
 [ext_resource type="PackedScene" uid="uid://jpocajhfhkvt" path="res://Levels/GamePieces/Air.tscn" id="3_y1yrn"]
 [ext_resource type="Texture2D" uid="uid://dgkrpebdxleqv" path="res://543341409-1b60a2ab-4987-4f87-be8f-c6120ff3e1c7.png" id="5_2yvdw"]

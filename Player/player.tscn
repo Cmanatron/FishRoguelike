@@ -14,21 +14,23 @@ collision_mask = 5
 script = ExtResource("1_l8h54")
 
 [node name="Emitter" type="Node2D" parent="." unique_id=451329806]
+position = Vector2(42, 64)
 
 [node name="Cooldown" type="Timer" parent="." unique_id=748646171]
 
 [node name="DropTimer" type="Timer" parent="." unique_id=151626841]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=75875578]
-top_level = true
-position = Vector2(579, 288)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_4ntmi")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=767174944]
 position = Vector2(0, 18)
 scale = Vector2(4.3599997, 1)
 shape = SubResource("CapsuleShape2D_4ntmi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=75875578]
+top_level = true
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4ntmi")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1497707477]
 
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
 [connection signal="timeout" from="DropTimer" to="." method="_on_drop_timer_timeout"]
