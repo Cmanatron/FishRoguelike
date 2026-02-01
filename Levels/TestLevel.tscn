@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bno56nggbtl7v"]
 
 [ext_resource type="PackedScene" uid="uid://djve37ttkv44t" path="res://fish/fsih.tscn" id="1_iqcmb"]
-[ext_resource type="Script" path="res://mainFish.gd" id="1_jyvk6"]
+[ext_resource type="Script" uid="uid://cw5kcqkpi8ro6" path="res://mainFish.gd" id="1_jyvk6"]
 [ext_resource type="PackedScene" uid="uid://bu5v80bhk737r" path="res://Player/player.tscn" id="1_uib4f"]
 [ext_resource type="PackedScene" uid="uid://jpocajhfhkvt" path="res://Levels/GamePieces/Air.tscn" id="3_y1yrn"]
 [ext_resource type="Texture2D" uid="uid://dgkrpebdxleqv" path="res://543341409-1b60a2ab-4987-4f87-be8f-c6120ff3e1c7.png" id="5_2yvdw"]
@@ -60,10 +60,8 @@ position = Vector2(282, 331.99997)
 rotation = 3.1415927
 scale = Vector2(243.88643, -8.299123)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=878921163]
-position = Vector2(-2.4252806, -11.31048)
-scale = Vector2(2.0327427, 0.7658397)
-polygon = PackedVector2Array(1.7518475, 56.934963, 1.4270924, 72.35396, -0.47706115, 70.30856, -0.7594565, 50.48415, -0.71508014, -30.858912, -0.54160845, -43.445843, 1.0337558, -43.917843, 1.6308209, -53.35804, 1.9696957, -46.277885, 1.7457961, 56.305622, 2.157287, 50.484165, 2.3448784, -60.123512, 1.5400509, -79.7906, -0.3802396, -76.171875, -1.0983313, -40.299114, -1.1245538, 8.632591, -1.0680748, 77.86072, -0.76954234, 93.59439, 1.02367, 102.71994, 1.4634004, 91.23436, 2.1512356, 50.16949)
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=916422270]
+polygon = PackedVector2Array(1.1931783, -23.73744, 1.1767769, 90.73248, -6.765444, 89.28653, -6.71624, -41.32968, 0.86105657, -42.775597, 1.2423816, -46.631424, 1.127574, -33.01553, 1.4432945, 11.326504, 2.3863564, 11.326508, 2.3699555, -45.185486, 1.5253001, -63.25969, -8.175936, -59.765366, -7.5772967, 47.35438, -7.876616, 88.322556, -6.9991584, 104.950836, 0.7134465, 109.77063, 2.2223454, 103.866394, 2.6200714, 64.464645, 2.3863564, 24.942402, 2.3863564, 15.784809)
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=782764374]
 z_index = -1
