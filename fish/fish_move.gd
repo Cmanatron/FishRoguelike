@@ -71,6 +71,7 @@ func _physics_process(delta):
 		dropped.position.x = $CollisionShape2D.global_position.x
 		dropped.position.y = $CollisionShape2D.global_position.y
 		get_tree().root.add_child(dropped)
+		Global.multiplier += 0.2 
 		queue_free()
 		
 		
