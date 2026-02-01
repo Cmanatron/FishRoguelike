@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cjbjx3q8bbsba"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tjdei"]
+radius = 155.19342
+
+[node name="Shock" type="Node2D" unique_id=258442079]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2131219538]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=326748559]
+shape = SubResource("CircleShape2D_tjdei")
+debug_color = Color(0.64693975, 0.5229238, 0.057132177, 0.41960785)

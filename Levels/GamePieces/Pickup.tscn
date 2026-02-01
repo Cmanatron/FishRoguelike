@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bvnt5w2jhvhe8"]
 
 [ext_resource type="Script" uid="uid://csoim01iiljjm" path="res://Levels/GamePieces/pickup.gd" id="1_vueyr"]
+[ext_resource type="Texture2D" uid="uid://q7j4olut3bhn" path="res://icon.svg" id="2_bujg3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bujg3"]
 radius = 45.54119
@@ -9,10 +10,14 @@ radius = 45.54119
 script = ExtResource("1_vueyr")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2128017466]
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=960630816]
 shape = SubResource("CircleShape2D_bujg3")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1818663794]
+texture = ExtResource("2_bujg3")
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

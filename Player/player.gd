@@ -1,12 +1,26 @@
 extends Node2D
-var speed = 30
+@export var speed = 30
 var stopping = 5
-@export var health = 10
-@export var airMax = 100
+@export var health:int = 10
+@export var airMax:int = 100
+@export var bulletSpeed:int = 100
 var inAir:bool = false
 var air = airMax
-@export var HP = 1000
+@export var MaxHP:int = 100
+var HP = MaxHP
+@export var damage:int = 50
+@export var bulletSize:float = 1
+@export var attackSpeed:float = 3
+
+@export var grenades:int = 0
+var dropReady:bool = true
+@export var batteries:int =0
+var shockReady:bool = true
+
+var isReady:bool = true
 var bullet = preload("res://Player/Bullet.tscn")
+var barrier = preload("res://Player/shock.tscn")
+#var grenade = preload("")
 
 func refill():
 	if(air<airMax):
@@ -15,7 +29,20 @@ func refill():
 func shoot():
 	var shot = bullet.instantiate()
 	$".".get_parent().add_child(shot)
+	shot.damage = damage
+	shot.speed = bulletSpeed
+	shot.scale.x =bulletSize
+	shot.scale.y = bulletSize
 	shot.transform = $Emitter.global_transform
+
+
+func shock():
+	var barrierUp = barrier.instantiate()
+	$".".add_child(barrierUp)
+	barrierUp.scale.x= bulletSize
+	barrierUp.scale.y=bulletSize
+	
+	
 
 func _physics_process(delta: float) -> void:
 	#Movement Controller
@@ -44,9 +71,19 @@ func _physics_process(delta: float) -> void:
 	if(inAir):
 		refill()
 	
-	print(air)
+	#print(air)
 	
 	#Shooting Controller
-	if(Input.is_action_just_pressed("shoot")):
+	if((Input.is_action_just_pressed("shootA")) and isReady):
+		isReady = false
 		shoot()
+		$Cooldown.start(attackSpeed)
+	elif(Input.is_action_just_pressed("shootB") and dropReady):
+		dropReady = false
 		
+		
+		
+
+
+func _on_cooldown_timeout() -> void:
+	isReady = true
