@@ -56,9 +56,9 @@ func _physics_process(delta: float) -> void:
 	#Movement Controller
 	air -= 1
 	if Input.is_action_pressed("right"):
-		$".".rotation_degrees+= speed*delta
+		$".".rotation_degrees+= speed*delta*2
 	if Input.is_action_pressed("left"):
-		$".".rotation_degrees-=speed*delta
+		$".".rotation_degrees-=speed*delta*2
 	
 	if(Input.is_action_pressed("up")):
 		var dir: Vector2 = Vector2.from_angle(self.rotation)

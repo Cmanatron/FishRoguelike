@@ -32,12 +32,14 @@ func _ready():
 			$Sprite2D.texture=ResourceLoader.load("res://fish/fish2.png")
 			health = 50
 			chase = false 
+			$CollisionShape2D.scale *= 2
 			
 		"LARGE":
 			speed = 20
 			$Sprite2D.texture=ResourceLoader.load("res://fish/fish3.png")
 			health = 100
 			chase = true
+			$CollisionShape2D.scale *= 4
 			
 			
 	
