@@ -52,6 +52,7 @@ func drop():
 	dropped.size = bulletSize
 	dropped.damage = damage
 func _physics_process(delta: float) -> void:
+	$Sprite2D.transform = $".".transform
 	#Movement Controller
 	air -= 1
 	if Input.is_action_pressed("right"):
