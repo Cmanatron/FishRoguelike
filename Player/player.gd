@@ -1,20 +1,20 @@
 extends Node2D
-@export var speed = 30
-var stopping = 5
-@export var health:int = 10
+#Export variables are changeable by pickups. These are our stats.
+@export var speed = 30#
+var stopping = speed/5
 @export var airMax:int = 100
 @export var bulletSpeed:int = 100
 var inAir:bool = false
-var air = airMax
-@export var MaxHP:int = 100
+@export var air = airMax#
+@export var MaxHP:int = 100#
 var HP = MaxHP
-@export var damage:int = 50
-@export var bulletSize:float = 1
-@export var attackSpeed:float = 3
+@export var damage:int = 50#
+@export var bulletSize:float = 1#
+@export var attackSpeed:float = 3#
 
-@export var grenades:int = 0
+@export var grenades:int = 0#
 var dropReady:bool = true
-@export var batteries:int =0
+@export var batteries:int =0#
 var shockReady:bool = true
 
 var isReady:bool = true

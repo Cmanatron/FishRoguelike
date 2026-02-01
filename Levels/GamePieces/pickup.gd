@@ -2,7 +2,7 @@ extends Node2D
 @export var type:int 
 
 func _on_tree_entered() -> void:
-	type = randi_range(0,2)
+	type = randi_range(0,7)
 	match type:
 		0:
 			$Area2D/Sprite2D.texture = load("res://fish/fish1.png")
@@ -10,11 +10,13 @@ func _on_tree_entered() -> void:
 			$Area2D/Sprite2D.texture = load("res://fish/fish2.png")
 		2:
 			$Area2D/Sprite2D.texture = load("res://fish/fish3.png")
+		_:
+			$Area2D/Sprite2D.texture = load("res://fish/fish3.png")
 	
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print(body)
+	#print(body)
 	if(body.is_in_group("Player")):
 		match type:
 			0:
@@ -30,5 +32,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			5:
 				body.attackSpeed -= 0.5
 			6:
+				body.grenades += 3
+			7:
+				body.batteries +=1
 				
 		queue_free()
