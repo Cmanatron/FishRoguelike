@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://djve37ttkv44t"]
 
+
+[ext_resource type="Script" uid="uid://d2xnnspscyy3m" path="res://mainFish.gd" id="1_1u7o6"]
 [ext_resource type="Script" uid="uid://dc77ye0qcs8gf" path="res://fish/fish_move.gd" id="1_f15ie"]
 [ext_resource type="Texture2D" uid="uid://gs4dg8r70mfw" path="res://fish/fish1.png" id="1_vnwir"]
 
