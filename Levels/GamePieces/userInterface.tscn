@@ -1,14 +1,30 @@
 [gd_scene format=3 uid="uid://fbrnmk7qv6hg"]
 
-[ext_resource type="Texture2D" uid="uid://q7j4olut3bhn" path="res://icon.svg" id="1_od3t6"]
+[sub_resource type="GDScript" id="GDScript_3emd3"]
+script/source = "extends Control
+#var player
+func _ready() -> void:
+	
+	$VBoxContainer/Health.max_value = $\"../../..\".MaxHP
+	$VBoxContainer/Air.max_value = $\"../../..\".airMax
+func _process(delta: float) -> void:
+	$VBoxContainer/Health.value = $\"../../..\".HP
+	$VBoxContainer/Air.value = $\"../../..\".air
+"
 
 [node name="UserInterface" type="Control" unique_id=2093154272]
 layout_mode = 3
 anchors_preset = 0
+script = SubResource("GDScript_3emd3")
 
-[node name="Button" type="Button" parent="." unique_id=571512284]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1564407139]
 layout_mode = 0
-offset_right = 136.0
-offset_bottom = 136.0
-scale = Vector2(1.0245273, 1)
-icon = ExtResource("1_od3t6")
+offset_right = 40.0
+offset_bottom = 58.0
+scale = Vector2(3.3600008, 1)
+
+[node name="Health" type="ProgressBar" parent="VBoxContainer" unique_id=1827642889]
+layout_mode = 2
+
+[node name="Air" type="ProgressBar" parent="VBoxContainer" unique_id=23637545]
+layout_mode = 2

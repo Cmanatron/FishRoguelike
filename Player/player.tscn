@@ -2,17 +2,23 @@
 
 [ext_resource type="Script" uid="uid://flwn51bt4xpc" path="res://Player/player.gd" id="1_l8h54"]
 [ext_resource type="Texture2D" uid="uid://3d6xw4j5kp3e" path="res://playerassets/diver.png" id="2_4ntmi"]
+[ext_resource type="PackedScene" uid="uid://fbrnmk7qv6hg" path="res://Levels/GamePieces/userInterface.tscn" id="3_btcbx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ntmi"]
 radius = 16.0
 height = 52.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_btcbx"]
+radius = 302.49997
+height = 609.99994
+
 [node name="Player" type="CharacterBody2D" unique_id=1643441324 groups=["Player"]]
-position = Vector2(581, 285)
 scale = Vector2(0.4, 0.4)
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("1_l8h54")
+speed = 60
+bulletSpeed = 200
 
 [node name="Emitter" type="Node2D" parent="." unique_id=451329806]
 position = Vector2(42, 64)
@@ -31,6 +37,18 @@ top_level = true
 texture = ExtResource("2_4ntmi")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1497707477]
+zoom = Vector2(3, 3)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=1755851860]
+
+[node name="UserInterface" parent="Camera2D/CanvasLayer" unique_id=2093154272 instance=ExtResource("3_btcbx")]
+scale = Vector2(4, 4)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=521708098]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1275079425]
+shape = SubResource("CapsuleShape2D_btcbx")
 
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
 [connection signal="timeout" from="DropTimer" to="." method="_on_drop_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

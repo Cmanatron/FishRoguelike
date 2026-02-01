@@ -102,3 +102,8 @@ func _on_cooldown_timeout() -> void:
 
 func _on_drop_timer_timeout() -> void:
 	dropReady = true
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if(body.is_in_group("Enemy")):
+		HP -= 5
