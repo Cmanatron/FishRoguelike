@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://djve37ttkv44t"]
 
-[ext_resource type="Script" uid="uid://bygb6ismqjskj" path="res://mainFish.gd" id="1_1u7o6"]
 [ext_resource type="Script" uid="uid://dc77ye0qcs8gf" path="res://fish/fish_move.gd" id="1_f15ie"]
+[ext_resource type="Texture2D" uid="uid://gs4dg8r70mfw" path="res://fish/fish1.png" id="1_vnwir"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f15ie"]
 size = Vector2(264.4181, 68.5)
@@ -13,18 +13,28 @@ script = ExtResource("1_1u7o6")
 script = ExtResource("1_f15ie")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=649955007]
-position = Vector2(362.00003, 56)
 scale = Vector2(2.60945, 2.61742)
+texture = ExtResource("1_vnwir")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1369621228]
-position = Vector2(362.26978, 55.75)
 scale = Vector2(0.24000049, 1)
 shape = SubResource("RectangleShape2D_f15ie")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="CharacterBody2D" unique_id=808669700]
+visible = false
 
 [node name="Timer" type="Timer" parent="CharacterBody2D" unique_id=372586715]
 autostart = true
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D" unique_id=978232314 groups=["Player"]]
+position = Vector2(362, 56)
+scale = Vector2(20.292274, 20.204878)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D/Area2D" unique_id=1711844106]
+position = Vector2(-18.332098, -2.7716079)
+scale = Vector2(0.6193928, 0.63590723)
+polygon = PackedVector2Array(0.93631744, 4.058426, 4.4844646, 3.2665381, 5.2729416, 0.49493003, 5.667181, -1.4352969, 4.090227, -3.9594398, 1.330555, -4.9987926, -0.78847694, -5.097779, -3.4495888, -3.612989, -4.4351864, -1.7322549, -4.4351864, 0.34645104, -4.336626, 2.029213, -2.5625525, 3.316031, -1.5276756, 4.206905, -0.542078, 4.305891)
+disabled = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=871913563]
 
@@ -35,4 +45,5 @@ polygon = PackedVector2Array(-1, 647, 1166, 651, 1166, -4, -4, -11, 6, 587, -231
 [node name="spawnTime" type="Timer" parent="." unique_id=1542247256]
 
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
+[connection signal="area_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="spawnTime" to="." method="_on_spawn_time_timeout"]
