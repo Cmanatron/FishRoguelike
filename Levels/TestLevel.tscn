@@ -41,7 +41,7 @@ script = SubResource("GDScript_f15ie")
 position = Vector2(206, 157)
 
 [node name="Air" parent="." unique_id=1516346332 instance=ExtResource("3_y1yrn")]
-position = Vector2(322, 11)
+position = Vector2(672, -34.999996)
 scale = Vector2(-243.88643, 8.299123)
 
 [node name="enemSpawn" type="Timer" parent="." unique_id=1460481805]

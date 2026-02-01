@@ -2,7 +2,7 @@ extends Node2D
 #Export variables are changeable by pickups. These are our stats.
 @export var speed = 30#
 var stopping = speed/5
-@export var airMax:int = 100
+@export var airMax:int = 1000
 @export var bulletSpeed:int = 100
 var inAir:bool = false
 @export var air = airMax#
@@ -26,7 +26,7 @@ var grenade = preload("res://Player/grenade.tscn")
 
 func refill():
 	if(air<airMax):
-		air+=10
+		air+=100
 
 func shoot():
 	var shot = bullet.instantiate()
@@ -54,7 +54,7 @@ func drop():
 func _physics_process(delta: float) -> void:
 	$Sprite2D.transform = $".".transform
 	#Movement Controller
-	air -= 1
+	air -= 0.01
 	if Input.is_action_pressed("right"):
 		$".".rotation_degrees+= speed*delta*2
 	if Input.is_action_pressed("left"):
@@ -78,6 +78,9 @@ func _physics_process(delta: float) -> void:
 	
 	if(inAir):
 		refill()
+		
+	if(HP <0):
+		get_tree().change_scene_to_file("res://Levels/gameOver.tscn")
 	
 	#print(air)
 	
@@ -93,7 +96,7 @@ func _physics_process(delta: float) -> void:
 		shock()
 		
 		
-		
+		print(inAir)
 
 
 func _on_cooldown_timeout() -> void:

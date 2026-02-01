@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cos3xu8yajtle"]
+
+[ext_resource type="Texture2D" uid="uid://bir24jnmwlg8q" path="res://Sprites/gameOverScreen.png" id="1_3bvjq"]
+[ext_resource type="Script" uid="uid://bjoqlqwwhoo5x" path="res://Levels/button.gd" id="2_57xou"]
+
+[node name="GameOver" type="Node2D" unique_id=813333014]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1571335000]
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D" unique_id=1196423871]
+texture = ExtResource("1_3bvjq")
+
+[node name="Control" type="Control" parent="Camera2D" unique_id=184641112]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Camera2D/Control" unique_id=520792696]
+layout_mode = 0
+offset_left = -441.00003
+offset_top = -339.0
+offset_right = -342.00003
+offset_bottom = -308.0
+scale = Vector2(10, 10)
+text = "TRY AGAIN?"
+script = ExtResource("2_57xou")
+
+[connection signal="pressed" from="Camera2D/Control/Button" to="Camera2D/Control/Button" method="_on_pressed"]
