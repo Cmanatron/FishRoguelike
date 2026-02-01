@@ -7,6 +7,7 @@ var typeFront = "SMALL"
 var health = 100
 @onready var player = get_node("../../Player")
 var area
+var pickup = preload("res://Levels/GamePieces/Pickup.tscn")
 var chase: bool
 
 var type = [
@@ -62,7 +63,11 @@ func _physics_process(delta):
 	
 	#print(chase)
 		
-	if health == 0: 
+	if health <= 0: 
+		var dropped = pickup.instantiate()
+		dropped.position.x = $CollisionShape2D.global_position.x
+		dropped.position.y = $CollisionShape2D.global_position.y
+		get_tree().root.add_child(dropped)
 		queue_free()
 		
 		
@@ -70,6 +75,7 @@ func _physics_process(delta):
 	
 #func move(delta):
 
+	
 	
 
 func _on_timer_timeout():

@@ -8,6 +8,8 @@ radius = 16.0
 height = 52.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1643441324 groups=["Player"]]
+collision_layer = 5
+collision_mask = 5
 script = ExtResource("1_l8h54")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=767174944]
@@ -18,3 +20,11 @@ texture = ExtResource("2_4ntmi")
 
 [node name="Emitter" type="Node2D" parent="." unique_id=451329806]
 position = Vector2(64, 1)
+
+[node name="Cooldown" type="Timer" parent="." unique_id=748646171]
+
+[node name="DropTimer" type="Timer" parent="." unique_id=151626841]
+
+[node name="ShockTimer" type="Timer" parent="." unique_id=1227381911]
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
