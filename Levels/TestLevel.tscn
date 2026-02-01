@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bu5v80bhk737r" path="res://Player/player.tscn" id="1_uib4f"]
 [ext_resource type="PackedScene" uid="uid://jpocajhfhkvt" path="res://Levels/GamePieces/Air.tscn" id="3_y1yrn"]
 [ext_resource type="Texture2D" uid="uid://dgkrpebdxleqv" path="res://543341409-1b60a2ab-4987-4f87-be8f-c6120ff3e1c7.png" id="5_2yvdw"]
+[ext_resource type="Texture2D" uid="uid://c0wcm2e0lfn0p" path="res://543341410-4827503e-cd01-4351-ad18-e8aebe3dbf5b.png" id="6_voj1p"]
 
 [sub_resource type="GDScript" id="GDScript_f15ie"]
 script/source = "extends Node2D
@@ -69,5 +70,15 @@ z_index = -1
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_2yvdw")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=705238642]
+z_index = 2
+y_sort_enabled = true
+offset_left = -5.0
+offset_top = -326.0
+offset_right = 1915.0
+offset_bottom = 754.0
+scale = Vector2(1, 1.9199998)
+texture = ExtResource("6_voj1p")
 
 [connection signal="timeout" from="enemSpawn" to="." method="_on_enem_spawn_timeout"]
